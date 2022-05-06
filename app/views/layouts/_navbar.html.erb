@@ -1,0 +1,31 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-light bg-light p-3 px-lg-5">
+        <div class="container-fluid p-0">
+            <%= link_to "HnC", root_path, class:"navbar-brand m-0 p-0" %>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse w-100 p-0 pe-lg-4" id="navbarCollapse">
+                <ul class="navbar-nav me-auto ms-0 ms-lg-3">
+                    <li class="nav-item">
+                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <%= link_to "Become a Host", root_path, class:"nav-link btn btn-primary rounder" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Login", root_path, class:"nav-link fw-bolder" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Signup", root_path, class:"nav-link fw-bolder" %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
