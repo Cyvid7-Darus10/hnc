@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Hnc</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <head>
+        <title>HnC</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <%= yield %>
-  </body>
+    <body class="d-flex flex-column min-vh-100">
+        <%= render "layouts/navbar" %>
+        <div class="mt-3">
+            <%= yield %>
+        </div>
+
+        <footer class="bg-light text-secondary mt-auto px-5">
+            <div class="row">
+                <div class="col p-3">
+                    © all rights reserved.
+                </div>
+                <div class="col p-3 text-end">
+                    <i class="bi bi-instagram"></i>
+                    <i class="bi bi-twitter"></i>
+                </div>
+            </div>
+        </footer>
+    </body>
 </html>
