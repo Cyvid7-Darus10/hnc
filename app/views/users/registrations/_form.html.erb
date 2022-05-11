@@ -1,0 +1,42 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    
+    <div class="form-group mb-3">
+        <%= f.label :avatar, class:"fw-bolder" %>
+        <%= f.file_field :image, class: "form-control" %>
+    </div>
+
+    <div class="input-group mb-3">
+        <%= f.label :name, class:"input-group-text" %>
+        <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Name" %>
+    </div>
+
+    <div class="input-group mb-3">
+        <%= f.label :email, class:"input-group-text" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
+    </div>
+
+    <div class="input-group mb-3">
+        <%= f.label :phone, class:"input-group-text" %>
+        <%= f.text_field :phone, autofocus: true, class: "form-control", placeholder: "Phone Number" %>
+    </div>
+
+    <div class="form-floating mb-3">
+        <%= f.text_area :description, class: "form-control" %>
+        <%= f.label :description %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+    <hr>
+    <div class="form-group mb-3">
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control mb-3", placeholder: "New Password" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirm New Password" %>
+    </div>
+    <hr>
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control mb-3", placeholder: "Current Password" %>
+    <div class="actions mt-3">
+        <%= f.submit "Update", class: "btn btn-primary w-100" %>
+    </div>
+<% end %>
