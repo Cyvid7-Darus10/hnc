@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  name: MyString
+  summary: MyText
+  home_type: MyString
+  room_type: MyString
+  accommodate: 1
+  bedroom: 1
+  address: MyString
+  price: 1.5
+  is_active: false
+  has_tv: false
+  has_kitchen: false
+  has_internet: false
+  has_heating: false
+  has_aircon: false
+
+two:
+  user_id: 1
+  name: MyString
+  summary: MyText
+  home_type: MyString
+  room_type: MyString
+  accommodate: 1
+  bedroom: 1
+  address: MyString
+  price: 1.5
+  is_active: false
+  has_tv: false
+  has_kitchen: false
+  has_internet: false
+  has_heating: false
+  has_aircon: false

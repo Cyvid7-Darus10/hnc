@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_10_125441) do
+ActiveRecord::Schema.define(version: 2022_05_10_133049) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,26 @@ ActiveRecord::Schema.define(version: 2022_05_10_125441) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.text "summary"
+    t.string "home_type"
+    t.string "room_type"
+    t.integer "accommodate"
+    t.integer "bedroom"
+    t.string "address"
+    t.float "price"
+    t.boolean "is_active"
+    t.boolean "has_tv"
+    t.boolean "has_kitchen"
+    t.boolean "has_internet"
+    t.boolean "has_heating"
+    t.boolean "has_aircon"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
