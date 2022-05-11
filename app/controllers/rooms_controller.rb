@@ -7,8 +7,7 @@ class RoomsController < ApplicationController
   end
   
   def create
-    @room = Room.new(room_params)
-    @room.user_id = current_user.id
+    @room = current_user.rooms.new(room_params)
     if @room.save
       redirect_to @room
     else
