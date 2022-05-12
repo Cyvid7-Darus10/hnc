@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-body d-flex flex-column h4">
+        <div class="d-flex justify-content-between mb-2">
+            <%= link_to "Listing", listing_room_path, class:"fw-bolder text-decoration-#{ type.to_s == "listing" ? "" : "none" }" %>
+            <i class="bi bi-<%= @room.home_type != nil ? 'check2' : 'x' %>"></i>
+        </div> 
+        <div class="d-flex justify-content-between mb-2">
+            <%= link_to "Pricing", price_room_path, class:"fw-bolder text-decoration-#{ type.to_s == "price" ? "" : "none" }" %>
+            <i class="bi bi-<%= @room.price != nil ? 'check2' : 'x' %>"></i>
+        </div>
+        <div class="d-flex justify-content-between mb-2">
+            <%= link_to "Description", description_room_path, class:"fw-bolder text-decoration-#{ type.to_s == "description" ? "" : "none" }" %>
+            <i class="bi bi-<%= @room.name != nil ? 'check2' : 'x' %>"></i>
+        </div>
+        <div class="d-flex justify-content-between mb-2">
+            <%= link_to "Photos", photos_room_path, class:"fw-bolder text-decoration-#{ type.to_s == "photos" ? "" : "none" }" %>
+            <i class="bi bi-<%= @room.photos.count != 0 ? 'check2' : 'x' %>"></i>
+        </div>
+        <div class="d-flex justify-content-between mb-2">
+            <%= link_to "Amenities", amenities_room_path, class:"fw-bolder text-decoration-#{ type.to_s == "amenities" ? "" : "none" }" %>
+            <i class="bi bi-<%= @room.has_tv != nil ? 'check2' : 'x' %>"></i>
+        </div>
+        <div class="d-flex justify-content-between mb-2">
+            <%= link_to "Location", location_room_path, class:"fw-bolder text-decoration-#{ type.to_s == "location" ? "" : "none" }" %>
+            <i class="bi bi-<%= @room.address != nil ? 'check2' : 'x' %>"></i>
+        </div>
+    </div>
+    <div class="card-footer">
+        <%= button_to "Publish", "", class:"btn btn-primary rounded w-100" %>
+    </div>
+</div>

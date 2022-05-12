@@ -4,7 +4,34 @@
             <h3 class="card-title">Share the Comfort of your Home</h3>
         </div>
         <div class="card-body">
-            <%= render 'form' %>
+           <%= form_with(model: @room, local: true) do |f| %>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="h5">Home Type</label> 
+                        <%= f.select(:home_type, ['Aprtment', 'House', 'Bed & Breakfast'], {}, { class:'form-select form-select-md' }) %>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="h5">Room Type</label> 
+                        <%= f.select(:room_type, ['Entire', 'Private', 'Share'], {}, { class:'form-select form-select-md' }) %>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="h5">Accomodate</label> 
+                        <%= f.select(:accomodate, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], {}, { class:'form-select form-select-md' }) %>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="h5">Bedroom</label> 
+                        <%= f.select(:bedroom, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], {}, { class:'form-select form-select-md' }) %>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="h5">Bathroom</label> 
+                        <%= f.select(:bathroom, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], {}, { class:'form-select form-select-md' }) %>
+                    </div>
+                    <div class="col-12 mb-3 text-center">
+                        <%= f.submit "Share", class:"btn btn-primary" %>
+                    </div>
+                </div>
+            <% end %>    
         </div>
     </div>
 </div>
+
