@@ -26,6 +26,9 @@
         </div>
     </div>
     <div class="card-footer">
-        <%= button_to "Publish", "", class:"btn btn-primary rounded w-100" %>
+        <%= form_with(model: @room, local: true) do |f| %>
+            <%= f.hidden_field :is_active, value:true %>
+            <%= f.submit "Publish", class:"btn btn-primary w-100" %>
+        <% end %>
     </div>
 </div>
