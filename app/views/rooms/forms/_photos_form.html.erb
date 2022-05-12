@@ -1,0 +1,14 @@
+<%= form_with(model: @room, local: true) do |f| %>
+    <div class="col-md-8 mx-auto mb-3">
+        <label class="h5">Select Photos</label> 
+        <%= f.file_field :image, :multiple => true, class: "form-control" %>
+    </div>
+    <div class="col-md-3 mx-auto">
+        <%= f.submit "Add Photos", class:"btn btn-primary w-100" %>
+    </div>
+    <div>
+        <% @room.photos.each do |photo| %>
+            <%= image_tag(photo, :width => 200) %>
+        <% end %>
+    </div>
+<% end %>    

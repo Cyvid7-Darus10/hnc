@@ -1,0 +1,28 @@
+<%= form_with(model: @room, local: true) do |f| %>
+    <div class="row container-fluid p-5 mx-auto">
+        <div class="col-md-4 form-check pe-3">
+            <%= f.check_box :has_tv, class: "form-check-input" %>
+            <%= f.label :has_tv, "TV", class:"h5 form-check-label"%>
+        </div>
+        <div class="col-md-4 form-check pe-3">
+            <%= f.check_box :has_kitchen, class: "form-check-input" %>
+            <%= f.label :has_kitchen, "Kitchen", class:"h5 form-check-label" %>
+        </div>
+        <div class="col-md-4 form-check pe-3">
+            <%= f.check_box :has_internet, class: "form-check-input" %>
+            <%= f.label :has_internet, "Internet", class:"h5 form-check-label" %>
+        </div>
+        <div class="col-md-4 form-check pe-3">
+            <%= f.check_box :has_heating, class: "form-check-input" %>
+            <%= f.label :has_heating, "Heating", class:"h5 form-check-label" %>
+        </div>
+        <div class="col-md-4 form-check pe-3">
+            <%= f.check_box :has_aircon, class: "form-check-input" %>
+            <%= f.label :has_aircon, "Air Condtion", class:"h5 form-check-label" %>
+        </div>
+    </div>
+
+    <div class="col-md-3 mx-auto">
+        <%= f.submit "Save", class:"btn btn-primary w-100" %>
+    </div>
+<% end %>    
