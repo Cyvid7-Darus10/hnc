@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  before_action :set_room, only: [:listing, :price, :description, :photos, :amenities, :location]
+
   def new
     @room = Room.new
   end
@@ -13,31 +15,29 @@ class RoomsController < ApplicationController
   end
 
   def listing
-    @room = Room.find(params[:id])
   end
 
   def price
-    @room = Room.find(params[:id])
   end
 
   def description
-    @room = Room.find(params[:id])
   end
 
   def photos
-    @room = Room.find(params[:id])
   end
 
   def amenities
-    @room = Room.find(params[:id])
   end
 
   def location
-    @room = Room.find(params[:id])
   end
 
   private
   def room_params
     params.require(:room).permit(:home_type, :room_type, :accommodate, :bedroom, :bathroom)
-  end  
+  end
+
+  def set_room
+    @room = Room.find(params[:id])
+  end
 end

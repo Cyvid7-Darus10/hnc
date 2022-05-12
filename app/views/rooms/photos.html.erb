@@ -1,1 +1,30 @@
-<%= render 'view', type:"photos" %>
+<div class="contatiner-fluid">
+    <div class="row m-0 p-0">
+        <div class="col-md-3">
+            <%= render 'side_bar', type:"photos" %>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Photos</h3>
+                </div>
+                <div class="card-body">
+                    <%= form_with(model: @room, local: true) do |f| %>
+                        <div class="col-md-8 mx-auto mb-3">
+                            <label class="h5">Select Photos</label> 
+                            <%= f.file_field :image, :multiple => true, class: "form-control" %>
+                        </div>
+                        <div class="col-md-3 mx-auto">
+                            <%= f.submit "Add Photos", class:"btn btn-primary w-100" %>
+                        </div>
+                        <div>
+                            <% @room.photos.each do |photo| %>
+                                <%= image_tag(photo, :width => 200) %>
+                            <% end %>
+                        </div>
+                    <% end %> 
+                </div>
+            </div>   
+        </div>
+    </div>
+</div>
