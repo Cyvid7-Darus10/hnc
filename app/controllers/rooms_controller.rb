@@ -1,6 +1,11 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:listing, :price, :description, :photos, :amenities, :location, :update]
 
+  def index
+    @rooms = current_user.rooms.where(is_active: true)
+    @rooms = @rooms.paginate(page: params[:page], per_page: 9).order(created_at: :desc)
+  end
+
   def new
     @room = Room.new
   end
