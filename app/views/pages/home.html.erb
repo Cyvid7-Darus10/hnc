@@ -23,36 +23,27 @@
     <hr>
     <p class="display-6 fw-bolder">Homes</p>
     <div class="row justify-content-center">
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <% @rooms.each do |room| %>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <%= link_to room do %>
+                        <% if room.photos.count > 0 %>
+                                <%= image_tag room.photos.first.image, class:"card-img-top", style:"height: 25vh;" %>
+                            <% else %>
+                                <%= image_tag "no-image.jpg", class:"card-img-top" %>
+                        <% end %>
+                    <% end %>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= room.name %></h5>
+                        <p class="card-text"><%= truncate(room.summary, length: 100) %></p>
+                        <strong><%= room.home_type %></strong> - 
+                        <strong><%= room.room_type %></strong> -
+                        <strong><%= room.accommodate %> pax</strong>
+                        <p class="card-text"><small class="text-muted">Posted on <%= room.created_at.strftime('%b %d, %Y') %></small></p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
+        <% end %>
     </div>
     <p class="display-6 fw-bolder">Cities</p>
     <div class="row justify-content-center">
