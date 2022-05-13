@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: [:show]
-  resources :rooms, only: [:new, :create, :index]
+  resources :rooms, only: [:new, :create, :index, :show]
   resources :rooms do
     member do
       get :listing

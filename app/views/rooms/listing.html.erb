@@ -20,8 +20,8 @@
                                 <%= f.select(:room_type, ['Entire', 'Private', 'Share'], {}, { class:'form-select form-select-md' }) %>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="h5">Accomodate</label> 
-                                <%= f.select(:accomodate, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], {}, { class:'form-select form-select-md' }) %>
+                                <label class="h5">Accommodate</label> 
+                                <%= f.select(:accommodate, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], {}, { class:'form-select form-select-md' }) %>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="h5">Bedroom</label> 
@@ -32,7 +32,7 @@
                                 <%= f.select(:bathroom, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], {}, { class:'form-select form-select-md' }) %>
                             </div>
                             <div class="col-12 mb-3 text-center">
-                                <%= f.submit "Share", class:"btn btn-primary" %>
+                                <%= f.submit "Save", class:"btn btn-primary" %>
                             </div>
                         </div>
                     <% end %>   
