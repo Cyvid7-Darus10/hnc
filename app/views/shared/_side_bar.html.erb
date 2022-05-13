@@ -1,5 +1,5 @@
 <div class="d-flex flex-column h3">
-    <%= link_to "Your Listing", '', class:"mb-2 btn badge bg-#{ type.to_s == "listing" ? "primary" : "secondary" }" %>
+    <%= link_to "Your Listings", rooms_path, class:"mb-2 btn badge bg-#{ type.to_s == "listing" ? "primary" : "secondary" }" %>
     <%= link_to "Your Reservations", '', class:"mb-2 btn badge bg-#{ type.to_s == "reservation" ? "primary" : "secondary" }" %>
     <%= link_to "Your Trips", '', class:"mb-2 btn badge bg-#{ type.to_s == "trip" ? "primary" : "secondary" }" %>
 </div>
