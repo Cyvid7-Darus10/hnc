@@ -1,1 +1,179 @@
-SAMPLE
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <% if @room.photos.count > 0 %>
+                <%= image_tag @room.photos.first.image, class: "w-100 img-thumbnail", style:"height: 40vh; object-fit: cover;" %>
+            <% else %>
+                <%= image_tag "no-image.jpg", class: "img-thumbnail", style:"height: 50vh; object-fit: cover;" %>
+            <% end %>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-10"> 
+                    <span class="display-6"><%= @room.name %></span><br>
+                    <span class="h5"><%= @room.address %><span>
+                </div>
+                <div class="col-2">
+                    <%= render 'shared/profile_image', user: @room.user %>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-3 h2 text-center">
+                    <i class="fa-solid fa-house"></i><br>
+                    <span class="h4"><%= @room.home_type %></span>
+                </div>
+                <div class="col-3 h2 text-center">
+                    <i class="fa-solid fa-person"></i><br>
+                    <span class="h4"><%= @room.accommodate %></span>
+                </div>
+                <div class="col-3 h2 text-center">
+                    <i class="fa-solid fa-bath"></i><br>
+                    <span class="h4"><%= @room.bathroom %></span>
+                </div>
+                <div class="col-3 h2 text-center">
+                    <i class="fa-solid fa-bed"></i><br>
+                    <span class="h4"><%= @room.bedroom %></span>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="d-flex justify-content-between">
+                        <%= "$#{@room.price}" %>
+                        <span>Per Night</span>
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <%= form_with do |f|%>
+                        <div class="d-flex">
+                            <div class="form-group w-50 pe-1">
+                                <%= f.label :check_in, class:"" %>
+                                <%= f.text_field :start_date, id:'start_date', readonly: true, placeholder:"Start Date", class:"w-100"%>
+                            </div>
+                            <div class="form-group w-50 ps-1">
+                                <%= f.label :check_out, class:"" %>
+                                <%= f.text_field :end_date, id:'end_date', readonly: true, placeholder:"End Date", class:"w-100" %>
+                            </div>
+                        </div>
+                        
+
+                        <%= f.submit "Book Now", class:"btn btn-primary w-100 mt-5" %>
+                    <% end %>
+
+                    <script>
+                        $(function(){
+                            $("#start_date").datepicker({
+                                format: "yyyy-mm-dd",
+                                startDate: "today",
+                                autoclose: true,
+                                todayHighlight: true,
+                                toggleActive: true,
+                                clearBtn: true,
+                                todayBtn: true
+                            });     
+                            
+                            $("#end_date").datepicker({
+                                format: "yyyy-mm-dd",
+                                startDate: "today",
+                                autoclose: true,
+                                todayHighlight: true,
+                                toggleActive: true,
+                                clearBtn: true,
+                                todayBtn: true
+                            });     
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <p class="h3 mb-3">About this Listing<p>
+            <p style="font-size:20px;"><%= @room.summary%></p>
+            <hr>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-3">
+                    <p class="h3 mb-5">Ameninities<p>
+                </div>
+                <div class="col-9 row">
+                    <p class="col-6 <%= @room.has_tv ? 'fw-bolder' : '' %>">TV</p>
+                    <p class="col-6 <%= @room.has_heating ? 'fw-bolder' : '' %>">Heating</p>
+                    <p class="col-6 <%= @room.has_kitchen ? 'fw-bolder' : '' %>">Kitchen</p>
+                    <p class="col-6 <%= @room.has_aircon ? 'fw-bolder' : '' %>">Air Conditioning</p>
+                    <p class="col-6 <%= @room.has_internet ? 'fw-bolder' : '' %>">Internet</p>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="col-md-9">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <% @room.photos.each_with_index do |photo, index| %>
+                        <div class="carousel-item <%= index == 1 ? 'active' : '' %>">
+                            <%= image_tag photo.image, class: "d-block w-100"%>
+                        </div>
+                    <% end %>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <hr>
+        </div>
+
+        <div class="col-md-9">
+            <p class="h3 mb-3">Reviews From Guests (2)</p>
+            <div class="container-fluid mb-3 row">
+                <div class="col-2">
+                    <%= render 'shared/profile_image', user: current_user %>
+                </div>
+                <div class="col-10">
+                    <div class="d-flex justify-content-between">
+                    <h5><%= link_to current_user.name, current_user, class: "text-decoration-none" %></h5>
+                    </div>
+                    <p>Sample Reviewwww</p>
+                </div>                
+            </div>
+            <hr>
+        </div>
+        <div class="col-9">
+            <p class="h3 mb-3">Nearbys</p>
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Card image cap">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Card image cap">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Card image cap">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Card image cap">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
