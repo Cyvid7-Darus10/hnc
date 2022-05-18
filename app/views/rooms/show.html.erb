@@ -46,51 +46,13 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="d-flex justify-content-between">
-                        <%= "$#{@room.price}" %>
+                        <span id="pricePerDay"><%= "$#{@room.price}" %></span>
                         <span>Per Night</span>
                     </h5>
                 </div>
                 
                 <div class="card-body">
-                    <%= form_with do |f|%>
-                        <div class="d-flex">
-                            <div class="form-group w-50 pe-1">
-                                <%= f.label :check_in, class:"" %>
-                                <%= f.text_field :start_date, id:'start_date', readonly: true, placeholder:"Start Date", class:"w-100 form-control"%>
-                            </div>
-                            <div class="form-group w-50 ps-1">
-                                <%= f.label :check_out, class:"" %>
-                                <%= f.text_field :end_date, id:'end_date', readonly: true, placeholder:"End Date", class:"w-100 form-control" %>
-                            </div>
-                        </div>
-                        
-
-                        <%= f.submit "Book Now", class:"btn btn-primary w-100 mt-5" %>
-                    <% end %>
-
-                    <script>
-                        $(function(){
-                            $("#start_date").datepicker({
-                                format: "yyyy-mm-dd",
-                                startDate: "today",
-                                autoclose: true,
-                                todayHighlight: true,
-                                toggleActive: true,
-                                clearBtn: true,
-                                todayBtn: true
-                            });     
-                            
-                            $("#end_date").datepicker({
-                                format: "yyyy-mm-dd",
-                                startDate: "today",
-                                autoclose: true,
-                                todayHighlight: true,
-                                toggleActive: true,
-                                clearBtn: true,
-                                todayBtn: true
-                            });     
-                        });
-                    </script>
+                    <%= render 'reservations/form' %>
                 </div>
             </div>
         </div>
