@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reservations/index'
   get 'rooms/new'
   root 'pages#home'
 
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  resources :reservations, only: [:index, :create]
   resources :users, only: [:show]
   resources :rooms, only: [:new, :create, :index, :show]
   resources :rooms do
