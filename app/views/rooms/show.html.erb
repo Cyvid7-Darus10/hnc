@@ -2,13 +2,13 @@
     <div class="row">
         <div class="col-md-12 text-center">
             <% if @room.photos.count > 0 %>
-                <%= image_tag @room.photos.first.image, class: "w-100 img-thumbnail", style:"height: 40vh; object-fit: cover;" %>
+                <%= image_tag @room.photos.first.image, class: "w-100", style:"height: 40vh; object-fit: cover;" %>
             <% else %>
                 <%= image_tag "no-image.jpg", class: "img-thumbnail", style:"height: 50vh; object-fit: cover;" %>
             <% end %>
         </div>
         
-        <div class="col-md-9">
+        <div class="col-md-9 mt-3">
             <div class="row">
                 <div class="col-10"> 
                     <span class="display-6"><%= @room.name %></span><br>
@@ -42,7 +42,7 @@
             <hr>
         </div>
         
-        <div class="col-md-3">
+        <div class="col-md-3 mt-3">
             <div class="card">
                 <div class="card-header">
                     <h5 class="d-flex justify-content-between">
@@ -95,13 +95,13 @@
             </div>
         </div>
 
-        <div class="col-md-9">
+        <div class="col-md-9 mt-3">
             <p class="h3 mb-3">About this Listing<p>
             <p style="font-size:20px;"><%= @room.summary%></p>
             <hr>
         </div>
         
-        <div class="col-md-9">
+        <div class="col-md-9 mt-3">
             <div class="row">
                 <div class="col-3">
                     <p class="h3 mb-5">Ameninities<p>
@@ -118,7 +118,7 @@
             <hr>
         </div>
         
-        <div class="col-md-9">
+        <div class="col-md-9 mt-3">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -146,7 +146,7 @@
             <hr>
         </div>
 
-        <div class="col-md-9">
+        <div class="col-md-9 mt-3">
             <p class="h3 mb-3">Reviews From Guests (2)</p>
             <div class="container-fluid mb-3 row">
                 <div class="col-2">
